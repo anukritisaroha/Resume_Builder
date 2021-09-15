@@ -1,0 +1,13 @@
+.personal-container{
+    height: 92vh;
+    display: flex;
+   
+}
+/* flex grow diaplay flex property ki parent container ko divide kr deta hai equally parts me */
+.personal-form{
+    height: 100%;
+    /* flex-grow: 1; */
+    width: 50%;
+    
+
+}

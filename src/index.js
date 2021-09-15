@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {applyMiddleware, createStore} from "redux";
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Provider} from "react-redux";
+// import userReducer from './redux/reducers/userReducer';
+import rootReducer from './redux/rootReducers';
+import thunk from "redux-thunk";
+//thunk ka use kia async kaam krne ke liye firebase me resume data store krne ke liye 
+//jb jyda components ho toh asynckaam ko krne ke liye better hai thunk
 
+let mystore=createStore(rootReducer,applyMiddleware(thunk));
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={mystore}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+ 
+  </Provider>,
+    document.getElementById('root')
+   
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
